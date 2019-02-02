@@ -13,12 +13,12 @@ export class MockService {
 
   async unaFecha() {
     const fecha = new Fecha()
-    this.river.nombre = "river"
-    this.boca.nombre = "boca"
+    this.river.nombre = "River"
+    this.boca.nombre = "Boca"
     fecha.local = this.river
     fecha.visitante = this.boca
     fecha.fechaHoraInicio = new Date(2018, 11, 20, 23, 30)
-    fecha.lugar = "mi casa"
+    fecha.lugar = "Estadio Monumental"
 
     return fecha
   }
