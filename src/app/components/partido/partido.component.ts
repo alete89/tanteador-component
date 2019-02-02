@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Fecha } from 'src/domain/Fecha';
 import { allowSanitizationBypass } from '@angular/core/src/sanitization/bypass';
-import { MockService } from 'src/app/mock.service';
+import { MockService } from 'src/app/services/mock.service';
+import { Equipo } from 'src/domain/Equipo';
+import { BackendServiceService } from 'src/app/services/backend-service.service';
 
 
 @Component({
@@ -11,15 +13,17 @@ import { MockService } from 'src/app/mock.service';
 })
 export class PartidoComponent implements OnInit {
   fecha: Fecha
+  equipo: Equipo
 
-  constructor(private mockService: MockService) { }
+  constructor(private mockService: MockService, private service: BackendServiceService) { }
 
   async ngOnInit() {
-    this.fecha = await this.mockService.unaFecha()
+    this.fecha = await this.service.unaFecha()
+    this.equipo = await this.service.unEquipo()
   }
 
   isReady() {
-    return this.fecha != undefined
+    return this.fecha != undefined && this.equipo != undefined
   }
 
 }
