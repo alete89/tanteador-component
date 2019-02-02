@@ -1,0 +1,5 @@
+<div class="card" *ngIf="isReady()">
+    <div>{{fecha.fechaHoraInicio | date:"dd/MM/yy HH:mm"}}</div>
+    <div>{{fecha.local.nombre}} vs {{fecha.visitante.nombre}}</div>
+    <div>{{fecha.lugar}}</div>
+</div>

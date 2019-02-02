@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { PartidoComponent } from './components/partido/partido.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PartidoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
