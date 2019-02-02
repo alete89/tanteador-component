@@ -5,4 +5,10 @@ export class Fecha {
     visitante: Equipo
     fechaHoraInicio: Date
     lugar: string
+
+    static fromJson(fechaJson) {
+        var nuevaFecha = Object.assign(new Equipo(), fechaJson)
+        nuevaFecha.fechaHoraInicio = new Date(fechaJson.fechaHoraInicio)
+        return nuevaFecha
+    }
 }
