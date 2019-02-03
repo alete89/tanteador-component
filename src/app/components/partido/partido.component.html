@@ -1,6 +1,14 @@
-<div id=card class="card" style="width: 14rem;" *ngIf="isReady()">
+<div class="card" style="width: 14rem;" *ngIf="isReady()">
     <div>Proxima Fecha</div>
     <div>{{fecha.fechaHoraInicio | date:"dd/MM/yy HH:mm"}}</div>
-    <div>{{fecha.local.nombre}} vs {{fecha.visitante.nombre}}</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>{{fecha.local.nombre}}</div>
+            <img src="../../../assets/logos/0002.png" alt="">
+        </div>
+        <div class="col-md-6">
+            <div>{{fecha.visitante.nombre}}</div>
+            <img src="../../../assets/logos/0001.png" alt="">
+        </div>
+    </div>
     <div>{{fecha.lugar}}</div>
-</div>
