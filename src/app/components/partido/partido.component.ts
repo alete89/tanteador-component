@@ -13,17 +13,15 @@ import { BackendServiceService } from 'src/app/services/backend-service.service'
 })
 export class PartidoComponent implements OnInit {
   fecha: Fecha
-  //equipo: Equipo
 
   constructor(private mockService: MockService, private service: BackendServiceService) { }
 
   async ngOnInit() {
     this.fecha = await this.mockService.unaFecha()
-    //this.equipo = await this.service.unEquipo()
   }
 
   isReady() {
-    return this.fecha != undefined //&& this.equipo != undefined
+    return this.fecha != undefined
   }
 
 }
