@@ -6,22 +6,33 @@ import { Equipo } from 'src/domain/Equipo';
   providedIn: 'root'
 })
 export class MockService {
-  river: Equipo = new Equipo()
-  boca: Equipo = new Equipo()
+  local: Equipo = new Equipo({ "nombre": "River" })
+  visitante: Equipo = new Equipo({ "nombre": "Boca" })
 
   constructor() { }
 
   async unaFecha() {
-    const fecha = new Fecha()
-    this.river.nombre = "River"
-    this.boca.nombre = "Boca"
-    fecha.local = this.river
-    fecha.visitante = this.boca
-    fecha.fechaHoraInicio = new Date(2018, 11, 20, 23, 30)
-    fecha.lugar = "Estadio Monumental"
-    fecha.iniciado = true
-
-    return fecha
+    return new Fecha({
+      "local": this.local,
+      "visitante": this.visitante,
+      "fechaHoraInicio": new Date(2018, 11, 20, 23, 30),
+      "lugar": "Estadio Único",
+      "iniciado": true,
+      "setsLocal": {
+        1: 25,
+        2: 25,
+        3: 18,
+        4: 25,
+        5: 28
+      },
+      "setsVisitante": {
+        1: 22,
+        2: 18,
+        3: 25,
+        4: 27,
+        5: 26
+      }
+    })
   }
 
 }

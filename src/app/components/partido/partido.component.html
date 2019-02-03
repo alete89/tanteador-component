@@ -21,19 +21,19 @@
         <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
         <div class="row">
             <div class="col-md-4">
-                <h2>{{fecha.setsGanadosLocal}}</h2>
+                <h2>{{fecha.setsGanadosLocal()}}</h2>
                 <img src="../../../assets/logos/0002.png" alt={{fecha.local.nombre}}>
                 <div>{{fecha.local.nombre}}</div>
             </div>
             <div class="col-md-4">
-                <div>{{fecha.set1local}} - {{fecha.set1visitante}}</div>
-                <div>{{fecha.set2local}} - {{fecha.set2visitante}}</div>
-                <div>{{fecha.set3local}} - {{fecha.set3visitante}}</div>
-                <div>{{fecha.set4local}} - {{fecha.set4visitante}}</div>
-                <div>{{fecha.set5local}} - {{fecha.set5visitante}}</div>
+                <div>{{fecha.setsLocal[1]}} - {{fecha.setsVisitante[1]}}</div>
+                <div>{{fecha.setsLocal[2]}} - {{fecha.setsVisitante[2]}}</div>
+                <div>{{fecha.setsLocal[3]}} - {{fecha.setsVisitante[3]}}</div>
+                <div>{{fecha.setsLocal[4]}} - {{fecha.setsVisitante[4]}}</div>
+                <div>{{fecha.setsLocal[5]}} - {{fecha.setsVisitante[5]}}</div>
             </div>
             <div class="col-md-4">
-                <h2>{{fecha.setsGanadosVisitante}}</h2>
+                <h2>{{fecha.setsGanadosVisitante()}}</h2>
                 <img src="../../../assets/logos/0001.png" alt={{fecha.visitante.nombre}}>
                 <div>{{fecha.visitante.nombre}}</div>
             </div>
