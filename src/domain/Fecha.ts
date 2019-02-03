@@ -7,25 +7,42 @@ export class Fecha {
     lugar: string
 
     iniciado: boolean = false
-    setsGanadosLocal: number = 0
-    setsGanadosVisitante: number = 0
 
-    set1local: number = 0
-    set2local: number = 0
-    set3local: number = 0
-    set4local: number = 0
-    set5local: number = 0
+    setsLocal: { [key: number]: number } = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0
+    }
+    setsVisitante: { [key: number]: number } = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0
+    }
 
-    set1visitante: number = 0
-    set2visitante: number = 0
-    set3visitante: number = 0
-    set4visitante: number = 0
-    set5visitante: number = 0
+    constructor(init?: Partial<Fecha>) {
+        Object.assign(this, init)
+    }
 
+
+    setsGanadosLocal() {
+        return 0
+    }
+
+    setsGanadosVisitante() {
+        return 0
+    }
 
     static fromJson(fechaJson) {
-        var nuevaFecha = Object.assign(new Equipo(), fechaJson)
+        var nuevaFecha = Object.assign(new Fecha(), fechaJson)
         nuevaFecha.fechaHoraInicio = new Date(fechaJson.fechaHoraInicio)
         return nuevaFecha
+    }
+
+    criterioWinSet(scoreA: number, scoreB: number) {
+        return (scoreA >= 25) && (scoreA >= (scoreB + 2))
     }
 }
