@@ -1,14 +1,43 @@
-<div class="card" style="width: 14rem;" *ngIf="isReady()">
+<div class="card" style="width: 16rem;" *ngIf="isReady() && !fecha.iniciado; else enVivo">
     <div>Proxima Fecha</div>
-    <div>{{fecha.fechaHoraInicio | date:"dd/MM/yy HH:mm"}}</div>
+    <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div>{{fecha.local.nombre}}</div>
-            <img src="../../../assets/logos/0002.png" alt="">
+            <img src="../../../assets/logos/0002.png" alt={{fecha.local.nombre}}>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <div>VS</div>
+        </div>
+        <div class="col-md-4">
             <div>{{fecha.visitante.nombre}}</div>
-            <img src="../../../assets/logos/0001.png" alt="">
+            <img src="../../../assets/logos/0001.png" alt={{fecha.visitante.nombre}}>
         </div>
     </div>
     <div>{{fecha.lugar}}</div>
+</div>
+<ng-template #enVivo>
+    <div class="card" style="width: 16rem;" *ngIf="isReady() && fecha.iniciado">
+        <div>{{fecha.fechaHoraInicio | date:"E dd/MM/yy HH:mm"}}</div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>{{fecha.setsGanadosLocal}}</h2>
+                <img src="../../../assets/logos/0002.png" alt={{fecha.local.nombre}}>
+                <div>{{fecha.local.nombre}}</div>
+            </div>
+            <div class="col-md-4">
+                <div>{{fecha.set1local}} - {{fecha.set1visitante}}</div>
+                <div>{{fecha.set2local}} - {{fecha.set2visitante}}</div>
+                <div>{{fecha.set3local}} - {{fecha.set3visitante}}</div>
+                <div>{{fecha.set4local}} - {{fecha.set4visitante}}</div>
+                <div>{{fecha.set5local}} - {{fecha.set5visitante}}</div>
+            </div>
+            <div class="col-md-4">
+                <h2>{{fecha.setsGanadosVisitante}}</h2>
+                <img src="../../../assets/logos/0001.png" alt={{fecha.visitante.nombre}}>
+                <div>{{fecha.visitante.nombre}}</div>
+            </div>
+        </div>
+        <div>{{fecha.lugar}}</div>
+    </div>
+</ng-template>
