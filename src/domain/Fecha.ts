@@ -28,12 +28,24 @@ export class Fecha {
     }
 
 
-    setsGanadosLocal() {
-        return 0
+    setsGanadosLocal() { //hacer más declarativo y unificar con setGanadosVisitante
+        var count = 0
+        for (var value in this.setsLocal) {
+            if (this.criterioWinSet(this.setsLocal[value], this.setsVisitante[value])) {
+                count++
+            }
+        }
+        return count
     }
 
     setsGanadosVisitante() {
-        return 0
+        var count = 0
+        for (var value in this.setsVisitante) {
+            if (this.criterioWinSet(this.setsVisitante[value], this.setsLocal[value])) {
+                count++
+            }
+        }
+        return count
     }
 
     static fromJson(fechaJson) {
@@ -45,4 +57,5 @@ export class Fecha {
     criterioWinSet(scoreA: number, scoreB: number) {
         return (scoreA >= 25) && (scoreA >= (scoreB + 2))
     }
+
 }
