@@ -19,6 +19,7 @@ export class MockService {
     fecha.visitante = this.boca
     fecha.fechaHoraInicio = new Date(2018, 11, 20, 23, 30)
     fecha.lugar = "Estadio Monumental"
+    fecha.iniciado = true
 
     return fecha
   }
