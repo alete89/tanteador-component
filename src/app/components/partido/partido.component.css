@@ -1,1 +1,19 @@
-.card{ text-align:center}
+.card {
+    text-align: center;
+}
+
+.puntajes {
+    list-style-type: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.2rem;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+.finalizado{
+    color:gray;
+}

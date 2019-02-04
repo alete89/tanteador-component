@@ -1,61 +1,32 @@
 import { Equipo } from "./Equipo";
+import { Set } from "./Set";
 
 export class Fecha {
     local: Equipo
     visitante: Equipo
     fechaHoraInicio: Date
     lugar: string
-
     iniciado: boolean = false
+    sets: Array<Set> = [new Set(), new Set(), new Set(), new Set(), new Set()]
 
-    setsLocal: { [key: number]: number } = {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0
-    }
-    setsVisitante: { [key: number]: number } = {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0
-    }
+    setsGanadosLocal() {
+        return this.sets.filter(set => set.ganoLocal()).length
 
-    constructor(init?: Partial<Fecha>) {
-        Object.assign(this, init)
-    }
-
-
-    setsGanadosLocal() { //hacer más declarativo y unificar con setGanadosVisitante
-        var count = 0
-        for (var value in this.setsLocal) {
-            if (this.criterioWinSet(this.setsLocal[value], this.setsVisitante[value])) {
-                count++
-            }
-        }
-        return count
     }
 
     setsGanadosVisitante() {
-        var count = 0
-        for (var value in this.setsVisitante) {
-            if (this.criterioWinSet(this.setsVisitante[value], this.setsLocal[value])) {
-                count++
-            }
-        }
-        return count
+        return this.sets.filter(set => set.ganoVisitante()).length
+
     }
 
+    partidoFinalizado() {
+        return this.setsGanadosLocal() == 3 || this.setsGanadosVisitante() == 3
+    }
+
+
     static fromJson(fechaJson) {
-        var nuevaFecha = Object.assign(new Fecha(), fechaJson)
+        var nuevaFecha = Object.assign(new Equipo(), fechaJson)
         nuevaFecha.fechaHoraInicio = new Date(fechaJson.fechaHoraInicio)
         return nuevaFecha
     }
-
-    criterioWinSet(scoreA: number, scoreB: number) {
-        return (scoreA >= 25) && (scoreA >= (scoreB + 2))
-    }
-
 }
