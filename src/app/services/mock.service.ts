@@ -8,25 +8,22 @@ import { Service } from './service';
   providedIn: 'root'
 })
 export class MockService implements Service {
-  river: Equipo = new Equipo()
-  boca: Equipo = new Equipo()
+  local: Equipo = new Equipo({ "nombre": "River", "logoUrl": "../../../assets/logos/0002.png" })
+  visitante: Equipo = new Equipo({ "nombre": "Boca", "logoUrl": "../../../assets/logos/0001.png" })
 
   constructor() { }
 
   async unaFecha() {
-    const fecha = new Fecha()
-    this.river.nombre = "River"
-    this.river.logoUrl = "../../../assets/logos/0002.png"
-    this.boca.nombre = "Boca"
-    this.boca.logoUrl = "../../../assets/logos/0001.png"
-    fecha.local = this.river
-    fecha.visitante = this.boca
-    fecha.fechaHoraInicio = new Date(2018, 11, 20, 23, 30)
-    fecha.lugar = "Estadio Monumental"
-    fecha.iniciado = true
-    fecha.sets = [new Set(25, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
 
-    return fecha
+    return new Fecha({
+      "local": this.local,
+      "visitante": this.visitante,
+      "fechaHoraInicio": new Date(2018, 11, 20, 23, 30),
+      "lugar": "Estadio Único",
+      "iniciado": true,
+      "sets": [new Set(25, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
+    })
+
   }
 
   async unEquipo() {

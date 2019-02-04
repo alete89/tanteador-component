@@ -9,6 +9,10 @@ export class Fecha {
     iniciado: boolean = false
     sets: Array<Set> = [new Set(), new Set(), new Set(), new Set(), new Set()]
 
+    constructor(init?: Partial<Fecha>) {
+        Object.assign(this, init)
+    }
+
     setsGanadosLocal() {
         return this.sets.filter(set => set.ganoLocal()).length
 
@@ -25,7 +29,7 @@ export class Fecha {
 
 
     static fromJson(fechaJson) {
-        var nuevaFecha = Object.assign(new Equipo(), fechaJson)
+        var nuevaFecha = Object.assign(new Fecha(), fechaJson)
         nuevaFecha.fechaHoraInicio = new Date(fechaJson.fechaHoraInicio)
         return nuevaFecha
     }
