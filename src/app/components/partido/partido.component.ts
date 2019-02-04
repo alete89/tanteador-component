@@ -12,13 +12,22 @@ import { BackendServiceService } from 'src/app/services/backend-service.service'
   styleUrls: ['./partido.component.css']
 })
 export class PartidoComponent implements OnInit {
+
   fecha: Fecha
 
   constructor(private mockService: MockService, private service: BackendServiceService) { }
 
-  async ngOnInit() {
+  /*async ngOnInit() {
     this.fecha = await this.mockService.unaFecha()
+  }*/
+  ngOnInit() {
+    this.unaFecha();
   }
+
+  unaFecha(){
+    this.mockService.unaFecha().subscribe(datos=>this.fecha=datos)
+  }
+
 
   isReady() {
     return this.fecha != undefined
