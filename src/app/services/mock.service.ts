@@ -12,31 +12,18 @@ import { Observable, of } from 'rxjs';
 })
 
 export class MockService {
-  local: Equipo = new Equipo({ "nombre": "Riber" })
-  visitante: Equipo = new Equipo({ "nombre": "Boca" })
+  local: Equipo = new Equipo({ "nombre": "Riber", "logoUrl": "../../../assets/logos/0002.png" })
+  visitante: Equipo = new Equipo({ "nombre": "Boca", "logoUrl": "../../../assets/logos/0001.png" })
 
   constructor() { }
 
-  fecha = new Fecha ({
+  fecha = new Fecha({
     "local": this.local,
     "visitante": this.visitante,
     "fechaHoraInicio": new Date(2018, 3, 20, 23, 30),
     "lugar": "Estadio Único",
     "iniciado": true,
-    "setsLocal": {
-      1: 24,
-      2: 25,
-      3: 18,
-      4: 25,
-      5: 28
-    },
-    "setsVisitante": {
-      1: 26,
-      2: 18,
-      3: 25,
-      4: 27,
-      5: 26
-    }
+    "sets": [new Set(25, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
   })
 
   unaFecha(): Observable<Fecha> {

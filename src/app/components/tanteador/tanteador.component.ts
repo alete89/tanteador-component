@@ -30,7 +30,7 @@ export class TanteadorComponent implements OnInit {
   fecha: Fecha;
 
   add(): void{
-    this.fecha.setsLocal[1]++
+    this.fecha.sets[0].puntosLocal++
     console.log(this.fecha)
   }
 }
