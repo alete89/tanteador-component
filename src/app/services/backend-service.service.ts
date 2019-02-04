@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Equipo } from 'src/domain/Equipo';
 import { Fecha } from 'src/domain/Fecha';
+import { Service } from './service';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class BackendServiceService {
+export class BackendServiceService implements Service {
   API_URL = "http://127.0.0.1:8080/"
 
   constructor(private http: Http) {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Fecha } from 'src/domain/Fecha';
 import { Equipo } from 'src/domain/Equipo';
+import { Set } from 'src/domain/Set';
+import { Service } from './service';
 
 import { Observable, of } from 'rxjs';
 
@@ -8,6 +10,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class MockService {
   local: Equipo = new Equipo({ "nombre": "Riber" })
   visitante: Equipo = new Equipo({ "nombre": "Boca" })
@@ -38,6 +41,7 @@ export class MockService {
 
   unaFecha(): Observable<Fecha> {
     return of(this.fecha)
+
   }
 
 }
