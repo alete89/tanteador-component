@@ -1,6 +1,6 @@
 export class Equipo {
     nombre: string
-    logoUrl: string
+    urlEscudo: string
 
 
     constructor(init?: Partial<Equipo>) {

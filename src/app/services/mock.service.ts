@@ -11,8 +11,8 @@ import { Service } from './service';
 })
 
 export class MockService implements Service {
-  local: Equipo = new Equipo({ "nombre": "Riber", "logoUrl": "../../../assets/logos/0002.png" })
-  visitante: Equipo = new Equipo({ "nombre": "Boca", "logoUrl": "../../../assets/logos/0001.png" })
+  local: Equipo = new Equipo({ "nombre": "River", "urlEscudo": "../../../assets/logos/0002.png" })
+  visitante: Equipo = new Equipo({ "nombre": "Boca", "urlEscudo": "../../../assets/logos/0001.png" })
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class MockService implements Service {
     "fechaHoraInicio": new Date(2018, 3, 20, 23, 30),
     "lugar": "Estadio Único",
     "iniciado": true,
-    "sets": [new Set(25, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
+    "sets": [new Set(19, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
   })
 
   unEquipo() {
