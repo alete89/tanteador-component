@@ -8,6 +8,7 @@ export class Fecha {
     lugar: string
     iniciado: boolean = false
     sets: Array<Set> = [new Set(), new Set(), new Set(), new Set(), new Set()]
+    actual: number=0
 
     constructor(init?: Partial<Fecha>) {
         Object.assign(this, init)

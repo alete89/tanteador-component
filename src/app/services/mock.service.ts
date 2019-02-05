@@ -23,20 +23,7 @@ export class MockService {
     "fechaHoraInicio": new Date(2018, 3, 20, 23, 30),
     "lugar": "Estadio Único",
     "iniciado": true,
-    "setsLocal": {
-      1: 24,
-      2: 25,
-      3: 18,
-      4: 25,
-      5: 28
-    },
-    "setsVisitante": {
-      1: 26,
-      2: 18,
-      3: 25,
-      4: 27,
-      5: 26
-    }
+    "sets": [new Set(19, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
   })
 
   unaFecha(): Observable<Fecha> {

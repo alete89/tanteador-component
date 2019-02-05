@@ -27,10 +27,38 @@ export class TanteadorComponent implements OnInit {
     return this.fecha != undefined
   }
 
-  fecha: Fecha;
+  fecha: Fecha
 
-  add(): void{
-    this.fecha.setsLocal[1]++
+  addLocal(): void{
+    this.fecha.sets[this.fecha.actual].puntosLocal++
     console.log(this.fecha)
+  }
+
+  addVisitante(): void{
+    this.fecha.sets[this.fecha.actual].puntosVisitante++
+    console.log(this.fecha)
+  }
+
+  resLocal(): void{
+    if(this.fecha.sets[this.fecha.actual].puntosLocal>0)
+    this.fecha.sets[this.fecha.actual].puntosLocal--
+  }
+
+  resVisitante(): void{
+    if(this.fecha.sets[this.fecha.actual].puntosVisitante>0)
+    this.fecha.sets[this.fecha.actual].puntosVisitante--
+  }
+
+  finSet(): void{
+    if(this.fecha.actual<4)
+    this.fecha.actual++
+  }
+
+  revSet(): void{
+    if(this.fecha.actual>=0)
+    this.fecha.actual--
+  }
+  setFinit() {
+    return this.fecha.sets[this.fecha.actual].ganoLocal() || this.fecha.sets[this.fecha.actual].ganoVisitante()
   }
 }

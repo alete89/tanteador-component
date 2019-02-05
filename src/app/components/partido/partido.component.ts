@@ -17,17 +17,17 @@ export class PartidoComponent implements OnInit {
 
   constructor(private mockService: MockService, private service: BackendServiceService) { }
 
-  /*async ngOnInit() {
-    this.fecha = await this.mockService.unaFecha()
-  }*/
   ngOnInit() {
     this.unaFecha();
   }
 
+  /*async unaFecha() {
+    this.fecha = await this.mockService.unaFecha()
+  }*/
+
   unaFecha(){
     this.mockService.unaFecha().subscribe(datos=>this.fecha=datos)
   }
-
 
   isReady() {
     return this.fecha != undefined
