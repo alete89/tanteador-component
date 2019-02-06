@@ -4,20 +4,19 @@ import { Equipo } from 'src/domain/Equipo';
 import { Set } from 'src/domain/Set';
 import { Service } from './service';
 
-import { Observable, of } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class MockService {
-  local: Equipo = new Equipo({ "nombre": "Riber" })
-  visitante: Equipo = new Equipo({ "nombre": "Boca" })
+export class MockService implements Service {
+  local: Equipo = new Equipo({ "nombre": "River", "urlEscudo": "../../../assets/logos/0002.png" })
+  visitante: Equipo = new Equipo({ "nombre": "Boca", "urlEscudo": "../../../assets/logos/0001.png" })
 
   constructor() { }
 
-  fecha = new Fecha ({
+  fecha = new Fecha({
     "local": this.local,
     "visitante": this.visitante,
     "fechaHoraInicio": new Date(2018, 3, 20, 23, 30),
@@ -26,8 +25,12 @@ export class MockService {
     "sets": [new Set(19, 22), new Set(25, 18), new Set(18, 25), new Set(25, 27), new Set(28, 26)]
   })
 
-  unaFecha(): Observable<Fecha> {
-    return of(this.fecha)
+  unEquipo() {
+    throw new Error("Method not implemented.");
+  }
+
+  async unaFecha() {
+    return this.fecha
 
   }
 

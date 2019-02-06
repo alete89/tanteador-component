@@ -26,4 +26,13 @@ export class Set {
           return (this.puntosVisitante >= 15) && (this.puntosVisitante >= (this.puntosLocal + 2))
         }
     }
+<<<<<<< HEAD
 }
+=======
+
+    static fromJson(setJson) {
+        var nuevoSet = Object.assign(new Set(), setJson)
+        return nuevoSet
+    }
+}
+>>>>>>> e6ff981ae158e59392e759b15b65450c826cde98
