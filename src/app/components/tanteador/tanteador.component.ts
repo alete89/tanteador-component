@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Fecha } from 'src/domain/Fecha';
 import { MockService } from 'src/app/services/mock.service';
 import { Equipo } from 'src/domain/Equipo';
@@ -9,18 +9,16 @@ import { Equipo } from 'src/domain/Equipo';
   styleUrls: ['./tanteador.component.css']
 })
 export class TanteadorComponent implements OnInit {
+  fecha: Fecha;
 
   constructor(private mockService: MockService) { }
 
-  /*async ngOnInit() {
-    this.fecha = await this.mockService.unaFecha()
-  }*/
   ngOnInit() {
-    this.unaFecha();
+    this.unaFecha()
   }
 
-  unaFecha(){
-    this.mockService.unaFecha().subscribe(datos=>this.fecha=datos)
+  async unaFecha() {
+    this.fecha = await this.mockService.unaFecha()
   }
 
   isReady() {
@@ -31,6 +29,7 @@ export class TanteadorComponent implements OnInit {
 
   addLocal(): void{
     this.fecha.sets[this.fecha.actual].puntosLocal++
+
     console.log(this.fecha)
   }
 

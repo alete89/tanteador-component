@@ -21,12 +21,9 @@ export class PartidoComponent implements OnInit {
     this.unaFecha();
   }
 
-  /*async unaFecha() {
-    this.fecha = await this.mockService.unaFecha()
-  }*/
 
-  unaFecha(){
-    this.mockService.unaFecha().subscribe(datos=>this.fecha=datos)
+  async unaFecha() {
+    this.fecha = await this.mockService.unaFecha()
   }
 
   isReady() {

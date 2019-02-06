@@ -32,6 +32,7 @@ export class Fecha {
     static fromJson(fechaJson) {
         var nuevaFecha = Object.assign(new Fecha(), fechaJson)
         nuevaFecha.fechaHoraInicio = new Date(fechaJson.fechaHoraInicio)
+        nuevaFecha.sets = fechaJson.sets.map(Set.fromJson)
         return nuevaFecha
     }
 }
