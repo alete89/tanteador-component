@@ -15,12 +15,12 @@ export class Fecha {
     }
 
     setsGanadosLocal() {
-        return this.sets.filter(set => set.ganoLocal()).length
+        return this.sets.filter(set => set.ganoLocal(this.actual)).length
 
     }
 
     setsGanadosVisitante() {
-        return this.sets.filter(set => set.ganoVisitante()).length
+        return this.sets.filter(set => set.ganoVisitante(this.actual)).length
 
     }
 
