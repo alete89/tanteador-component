@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Fecha } from 'src/domain/Fecha';
 import { MockService } from 'src/app/services/mock.service';
 import { Equipo } from 'src/domain/Equipo';
@@ -9,16 +9,18 @@ import { Equipo } from 'src/domain/Equipo';
   styleUrls: ['./tanteador.component.css']
 })
 export class TanteadorComponent implements OnInit {
-  fecha: Fecha;
 
   constructor(private mockService: MockService) { }
 
+  /*async ngOnInit() {
+    this.fecha = await this.mockService.unaFecha()
+  }*/
   ngOnInit() {
-    this.unaFecha()
+    this.unaFecha();
   }
 
-  async unaFecha() {
-    this.fecha = await this.mockService.unaFecha()
+  unaFecha(){
+    this.mockService.unaFecha().subscribe(datos=>this.fecha=datos)
   }
 
   isReady() {
@@ -29,7 +31,6 @@ export class TanteadorComponent implements OnInit {
 
   addLocal(): void{
     this.fecha.sets[this.fecha.actual].puntosLocal++
-
     console.log(this.fecha)
   }
 
@@ -58,6 +59,6 @@ export class TanteadorComponent implements OnInit {
     this.fecha.actual--
   }
   setFinit() {
-    return this.fecha.sets[this.fecha.actual].ganoLocal() || this.fecha.sets[this.fecha.actual].ganoVisitante()
+    return this.fecha.sets[this.fecha.actual].ganoLocal(this.fecha.actual) || this.fecha.sets[this.fecha.actual].ganoVisitante(this.fecha.actual)
   }
 }
