@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { PartidoComponent } from './partido.component';
+import { HttpModule } from '@angular/http';
 
 describe('PartidoComponent', () => {
   let component: PartidoComponent;
@@ -11,6 +12,7 @@ describe('PartidoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpModule],
       declarations: [ PartidoComponent ]
     })
     .compileComponents();
